@@ -1,0 +1,30 @@
+@import '../theme/colors.scss';
+
+.container {
+    padding: 1rem;
+    .title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .sub-title {
+        padding-top: .2rem;
+        font-size: .9rem;
+    }
+    .search {
+        padding: 1rem 0;
+    }
+    .customer {
+        padding: 0 0 1rem 0;
+    }
+    .back {
+        font-weight: bold;
+        cursor: pointer;
+        i {
+            font-size: 1rem;
+            margin-right: .5rem;
+        }
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: row;
+    }
+}

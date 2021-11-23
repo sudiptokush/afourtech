@@ -1,0 +1,13 @@
+.search-control-container {
+    width: 25rem;
+    min-width: 200px;
+    .mat-icon {
+        font-size: 1.2rem;
+    }
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+  }
+
