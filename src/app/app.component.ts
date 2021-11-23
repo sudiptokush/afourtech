@@ -13,6 +13,7 @@ export class AppComponent {
   keyword: string = '';
 
   constructor(private readonly broker: BrokerService) {
+    // Create a deep copy of the data and stored it in service
     this.broker.customerList = [...CustomerData];
   }
 

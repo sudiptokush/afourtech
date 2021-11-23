@@ -1,7 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BrokerService } from 'src/app/broker/broker.service';
 import { CustomerModel } from 'src/app/model/customer.model';
+import { Subject } from 'rxjs/internal/Subject';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 @Component({
   selector: 'app-display-add-customer',
@@ -10,11 +11,11 @@ import { CustomerModel } from 'src/app/model/customer.model';
 })
 export class DisplayAddCustomerComponent implements OnInit, OnDestroy {
 
-  keywordSub: Subscription;
+  destroy$: Subject<void> = new Subject();
   customerList: CustomerModel[] = [...this.broker.customerList];
 
   constructor(public broker: BrokerService) { 
-    this.keywordSub = this.broker.filterOn('keyword').subscribe(d => {
+    this.broker.filterOn('keyword').pipe(takeUntil(this.destroy$)).subscribe(d => {
       this.filterCustomerList(d.data);
     });
   }
@@ -40,12 +41,16 @@ export class DisplayAddCustomerComponent implements OnInit, OnDestroy {
       color: 'blue',
       icon: 'https://picsum.photos/50/50?random=' + newId
     }
+    // This line represents the API call to save data
     this.broker.customerList.push(customerObj);
+
+    // This line represents the API call to get updated data after save
     this.customerList = [...this.broker.customerList];
   }
 
   ngOnDestroy() {
-    this.keywordSub.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
 }
