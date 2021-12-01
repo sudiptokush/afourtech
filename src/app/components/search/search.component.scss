@@ -1,13 +1,24 @@
+@import "src/theme/colors.scss";
+
 .search-control-container {
-    width: 25rem;
-    min-width: 200px;
+    width: 20rem;
+    min-width: 320px;
     .mat-icon {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        color: $search-icon-color;
     }
 }
 
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    background-color: white;
+::ng-deep  .mat-form-field-outline {
+    background-color: $add-icon-color;
     border-radius: 5px;
+    border: .5px solid $search-border-color;
   }
 
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0 0 .4em 0 !important; }
+::ng-deep .mat-form-field-wrapper { padding-bottom: 0px;}
+
+::ng-deep .mat-input-element::placeholder{
+    color: $search-text-color;
+    font-size: .85em;
+}

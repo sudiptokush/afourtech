@@ -13,9 +13,9 @@ import { Subject } from 'rxjs/internal/Subject';
 })
 export class SearchComponent implements OnInit, OnDestroy {
   
-  form = new FormGroup({
-    keyword: new FormControl('')
-  });
+  
+  keyword = new FormControl('')
+  
   destroy$: Subject<void> = new Subject<void>()
 
   constructor(private broker: BrokerService) { 
@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Implementing a debounce time so that the logic is not called on every value change
-    this.form.get('keyword')?.valueChanges.pipe (
+    this.keyword.valueChanges.pipe (
       debounceTime(500), distinctUntilChanged(),takeUntil(this.destroy$)
       ).subscribe( newValue =>
         this.broker.emit('keyword', newValue.trim().toLowerCase()

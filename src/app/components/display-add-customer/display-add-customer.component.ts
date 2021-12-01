@@ -39,7 +39,7 @@ export class DisplayAddCustomerComponent implements OnInit, OnDestroy {
       address: '123 Main St, Philadelphia, PA, 19147',
       email: 'johnsnow@gmail.com',
       color: 'blue',
-      icon: 'https://picsum.photos/50/50?random=' + newId
+      icon: 'assets/icon.png'
     }
     // This line represents the API call to save data
     this.broker.customerList.push(customerObj);

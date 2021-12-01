@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="title">
+    <div class="title bold">
       Create a new Customer or select an existing one
     </div>
-    <div class="sub-title">
+    <div class="sub-title bold-500">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     </div>
     <!-- Created a separate component for search as it can be reused in different pages -->
@@ -14,7 +14,7 @@
       <app-display-add-customer></app-display-add-customer>
     </div>
     <hr class="solid">
-    <div class="back" (click)="back()"> 
-      <i class="material-icons">arrow_back</i> Back
+    <div class="back" > 
+       <span class="pointer" (click)="back()"><i class="material-icons" >arrow_back</i> Back</span>
     </div>
 </div>

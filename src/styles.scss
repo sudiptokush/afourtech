@@ -7,3 +7,17 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.pointer {
+    cursor: pointer;
+}
+.mat-card {
+    padding: 9px !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bold-500 {
+    font-weight: 500;
+}

@@ -1,19 +1,19 @@
 <div class="customer-list">
-    <mat-card class="add-customer">
+    <mat-card class="add-customer pointer" (click)="addCustomer()">
         <mat-card-content class="same-line">
-            <i class="material-icons" (click)="addCustomer()">add</i> 
-            <div class="info-text">Create a new Customer</div>
+            <i class="material-icons bold">add</i> 
+            <div class="info-text bold">Create a new Customer</div>
         </mat-card-content>
     </mat-card>
     <mat-card class="display-customer" *ngFor="let customer of customerList" [ngStyle]="{'border-top': '4px solid ' + customer.color}">
         <div class="top-section">
             <img class="icon" [src]="customer.icon">
             <div class="customer-owner">
-                <div class="customer">{{customer.name}}</div>
-                <div class="owner">{{customer.owner}}</div>
+                <div class="customer bold">{{customer.name}}</div>
+                <div class="owner bold-500">{{customer.owner}}</div>
             </div>
         </div>
-        <div class="address-email">
+        <div class="address-email bold-500">
             <div class="address">{{customer.address}}</div>
             <div class="email">{{customer.email}}</div>
         </div>
